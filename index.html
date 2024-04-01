@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>評圖用計時器司儀程序</title>
     <style>
+        .but1 {
+            display: inline-block;
+        }
+
         #timer {
             font-size: 15em; /* 放大計時器文字大小 */
         }
@@ -16,17 +20,57 @@
         #timer3 {
             font-size: 15em; /* 放大計時器文字大小 */
         }
+
+        #button1, #button2, #button3 {
+            /* CSS */
+            background-color: #13aa52;
+            border: 1px solid #13aa52;
+            border-radius: 4px;
+            box-shadow: rgba(0, 0, 0, .1) 0 2px 4px 0;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            font-family: "Akzidenz Grotesk BQ Medium", -apple-system, BlinkMacSystemFont, sans-serif;
+            font-size: 16px;
+            font-weight: 400;
+            outline: none;
+            outline: 0;
+            padding: 10px 25px;
+            text-align: center;
+            transform: translateY(0);
+            transition: transform 150ms, box-shadow 150ms;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+        }
+
+        #button1, #button2, #button3:hover {
+        box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
+        transform: translateY(-2px);
+        }
+
+        @media (min-width: 768px) {
+            #button1, #button2, #button3 {
+            padding: 10px 30px;
+        }
+        }
+
+        
     </style>
 </head>
 <body>
+    <h3>主簡報時間</h3>
     <div id="timer">5:00</div>
-    <button onclick="startTimer()">開始計時</button>
-    <button onclick="stoppost()">評審提問</button>
-    <button onclick="startTimer2()">準備申覆</button>
-    <div id="timer2">1:00</div>
-    <br>  
-    <div id="timer3">1:00</div>
+    <button id="button1" onclick="startTimer()">開始計時</button>
+    <button id="button2" onclick="stoppost()">評審提問</button>
+    <button id="button3" onclick="startTimer2()">準備申覆</button>
 
+    <div class="column">
+        <h3 class="but1">申覆準備時間</div>
+        <div id="timer2" class="but1">1:00</div>    
+        <h3 class="but1">申覆時間</h3>
+        <div id="timer3" class="but1">1:00</div>
+    </div>
    
     <script>
         let timeLeft = 300; // 初始時間為5分鐘，以秒為單位
@@ -50,7 +94,7 @@
                 ringBell(); // 當剩餘時間為2分鐘時響鈴一次
             } else if (timeLeft === 60) {
                 ringBell(); // 當剩餘時間為1分鐘時響鈴兩次
-                ringBell();
+                setTimeout(ringBell, 500); // 0.5秒後再響鈴一次
             }
 
             if (timeLeft === 0) {
