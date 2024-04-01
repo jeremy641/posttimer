@@ -24,7 +24,7 @@
     <button onclick="stoppost()">評審提問</button>
     <button onclick="startTimer2()">準備申覆</button>
     <div id="timer2">1:00</div>
-    <button onclick="startTimer3()">進行申覆</button>
+    <br>  
     <div id="timer3">1:00</div>
 
    
@@ -38,8 +38,6 @@
 
         function startTimer() {
             timer = setInterval(updateTimer, 1000); // 每秒更新計時器
-            const start = new Audio('上台報告.mp3'); // 插入鬧鐘音效的檔案路徑
-            start.play();
         }
 
         function updateTimer() {
@@ -80,6 +78,7 @@
                 clearInterval(timer2); // 倒數計時結束時停止計時器
                 document.getElementById('timer2').innerText = '計時結束';
                 QAing(); // 播放鬧鐘音效
+                startTimer3();
             } else {
                 timeLeft2 --;
             }
