@@ -21,7 +21,7 @@
             font-size: 15em; /* 放大計時器文字大小 */
         }
 
-        #button1, #button2, #button3 {
+        #button1, #button2, #button3, #button4 {
             /* CSS */
             background-color: #13aa52;
             border: 1px solid #13aa52;
@@ -44,13 +44,13 @@
             touch-action: manipulation;
         }
 
-        #button1:hover, #button2:hover, #button3:hover {
+        #button1:hover, #button2:hover, #button3:hover, #button4:hover {
         box-shadow: rgba(0, 0, 0, .15) 0 3px 9px 0;
         transform: translateY(-2px);
         }
 
         @media (min-width: 768px) {
-            #button1, #button2, #button3 {
+            #button1, #button2, #button3, #button4 {
             padding: 10px 30px;
         }
         }
@@ -64,6 +64,7 @@
     <button id="button1" onclick="startTimer()">開始計時</button>
     <button id="button2" onclick="stoppost()">評審提問</button>
     <button id="button3" onclick="startTimer2()">準備申覆</button>
+    <button id="button4" onclick="window.location.reload();">重新整理</button>
 
     <div class="column">
         <h3 class="but1">申覆準備時間</div>
